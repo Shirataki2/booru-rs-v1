@@ -1,0 +1,23 @@
+[package]
+name = "booru-cli"
+version = "0.0.1"
+authors = ["root"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[[bin]]
+name = "booru"
+path = "src/main.rs"
+
+[dependencies]
+structopt = "0.3"
+dialoguer = "0.7"
+indicatif = "0.15"
+anyhow = "1.0"
+threadpool = "1.8"
+num_cpus = "1.13"
+colored = "2"
+
+[dependencies.booru]
+path = "../booru-lib"
