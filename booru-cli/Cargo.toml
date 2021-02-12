@@ -20,4 +20,6 @@ num_cpus = "1.13"
 colored = "2"
 
 [dependencies.booru]
-path = "../booru-lib"
+git = "https://github.com/Shirataki2/booru-rs.git"
+branch = "main"
+# path = "../booru-lib"

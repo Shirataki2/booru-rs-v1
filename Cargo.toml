@@ -1,0 +1,6 @@
+[workspace]
+
+members = [
+    "booru-cli",
+    "booru-lib",
+]

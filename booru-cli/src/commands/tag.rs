@@ -9,6 +9,7 @@ use threadpool::ThreadPool;
 use std::path::PathBuf;
 use colored::*;
 use std::sync::Arc;
+use std::fs;
 use crate::commands::utils::Spinner;
 
 #[derive(Debug, StructOpt)]
@@ -35,7 +36,7 @@ pub fn download(opt: &TagDownloadOpt) -> Result<(), BooruError> {
         .build()
         .unwrap();
     let posts = BooruClient::from_config(&conf)?.get_posts(query)?;
-    
+    fs::create_dir_all(opt.out_dir.clone())?;
     match opt.num_threads {
         1 => {
             for post in posts {
@@ -52,6 +53,7 @@ pub fn download(opt: &TagDownloadOpt) -> Result<(), BooruError> {
             let spinner = Spinner::start("Saving...");
 
             let path = Arc::new(opt.out_dir.clone());
+
             for post in posts {
                 let path = Arc::clone(&path);
                 pool.execute(move || {
