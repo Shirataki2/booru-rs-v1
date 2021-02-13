@@ -99,6 +99,7 @@ dependencies = [
  "dirs",
  "image",
  "once_cell",
+ "rand",
  "regex",
  "reqwest",
  "serde",
@@ -107,28 +108,7 @@ dependencies = [
  "thiserror",
  "toml",
  "url",
-]
-
-[[package]]
-name = "booru"
-version = "0.0.1"
-source = "git+https://github.com/Shirataki2/booru-rs.git?branch=main#5e1c0a7f39a33a240559e748ff34c032a805d02c"
-dependencies = [
- "anyhow",
- "chrono",
- "derive_builder",
- "derive_more",
- "dirs",
- "image",
- "once_cell",
- "regex",
- "reqwest",
- "serde",
- "serde_derive",
- "serde_with",
- "thiserror",
- "toml",
- "url",
+ "uuid",
 ]
 
 [[package]]
@@ -136,9 +116,10 @@ name = "booru-cli"
 version = "0.0.1"
 dependencies = [
  "anyhow",
- "booru 0.0.1 (git+https://github.com/Shirataki2/booru-rs.git?branch=main)",
+ "booru",
  "colored",
  "dialoguer",
+ "image",
  "indicatif",
  "num_cpus",
  "structopt",
@@ -1716,6 +1697,16 @@ dependencies = [
  "idna",
  "matches",
  "percent-encoding",
+]
+
+[[package]]
+name = "uuid"
+version = "0.8.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "bc5cf98d8186244414c848017f0e2676b3fcb46807f6668a97dfe67359a3c4b7"
+dependencies = [
+ "getrandom 0.2.2",
+ "serde",
 ]
 
 [[package]]

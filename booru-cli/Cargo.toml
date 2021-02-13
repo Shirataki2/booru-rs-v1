@@ -18,8 +18,9 @@ anyhow = "1.0"
 threadpool = "1.8"
 num_cpus = "1.13"
 colored = "2"
+image = "0.23"
 
 [dependencies.booru]
-git = "https://github.com/Shirataki2/booru-rs.git"
-branch = "main"
-# path = "../booru-lib"
+# git = "https://github.com/Shirataki2/booru-rs.git"
+# branch = "main"
+path = "../booru-lib"

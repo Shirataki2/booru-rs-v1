@@ -9,6 +9,9 @@ pub enum BooruError {
     #[error("Unexpected API Error! {0:#?}")]
     APIError(String),
 
+    #[error("Ratio Error")]
+    RatioError,
+
     #[error("Missing Required Fields: {0}")]
     MissingRequiredFields(String),
     #[error("Path is not a directory: {0}")]

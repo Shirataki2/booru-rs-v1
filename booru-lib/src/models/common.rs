@@ -7,6 +7,7 @@ pub struct UserId(u64);
 #[derive(Display, From, Debug, Clone, Deserialize)]
 pub struct PostId(u64);
 
+
 #[derive(Display, From, Debug, Clone, Deserialize)]
 pub struct ArtistId(u64);
 

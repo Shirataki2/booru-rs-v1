@@ -1,8 +1,8 @@
 use indicatif::{ProgressBar, ProgressStyle};
 
-pub struct Spinner(ProgressBar);
+pub struct SimpleSpinner(ProgressBar);
 
-impl Spinner {
+impl SimpleSpinner {
     pub fn start(message: &str) -> Self {
         let pb = ProgressBar::new_spinner();
         pb.enable_steady_tick(50);

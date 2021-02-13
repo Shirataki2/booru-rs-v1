@@ -9,6 +9,7 @@ pub static API_ENDPOINT: Lazy<Url> = Lazy::new(|| {
     Url::parse("https://danbooru.donmai.us/").unwrap()
 });
 
+#[derive(Debug, Clone)]
 pub struct BooruClient {
     client: Client,
     config: Option<Config>,

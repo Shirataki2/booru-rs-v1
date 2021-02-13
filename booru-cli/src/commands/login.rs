@@ -4,7 +4,7 @@ use booru::{
     config::{Config, AccountConfig},
     http::BooruClient,
 };
-use crate::commands::utils::Spinner;
+use crate::commands::progress::SimpleSpinner;
 
 pub fn login() -> Result<(), BooruError>{
     let username: String = Input::with_theme(&ColorfulTheme::default())
@@ -17,7 +17,7 @@ pub fn login() -> Result<(), BooruError>{
         .with_prompt("API key")
         .interact()?;
 
-    let spinner = Spinner::start("Checking");
+    let spinner = SimpleSpinner::start("Checking");
 
     let conf = Config::default()
         .account(AccountConfig { username, api_key });

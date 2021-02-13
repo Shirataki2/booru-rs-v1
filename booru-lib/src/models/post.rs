@@ -78,4 +78,21 @@ impl Post {
         img.save(path)?;
         Ok(())
     }
+
+    pub fn save_ratio(&self, path: &Path, ratio_limit: f64) -> Result<(), BooruError> {
+        if !path.is_dir() {
+            return Err(BooruError::PathIsNotDirectory(path.to_str().unwrap().to_string()))
+        }
+        let filename = format!("{}.{}", self.id, self.file_ext);
+        let path = path.join(&filename);
+        let bytes = reqwest::blocking::get(&self.large_file_url)?.bytes()?;
+        let img = image::load_from_memory(&bytes)?;
+        use image::GenericImageView;
+        let r = std::cmp::max(img.width(), img.height()) as f64 / std::cmp::min(img.width(), img.height()) as f64;
+        if r > ratio_limit {
+            return Err(BooruError::RatioError)
+        }
+        img.save(path)?;
+        Ok(())
+    }
 }
